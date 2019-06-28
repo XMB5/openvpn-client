@@ -224,6 +224,7 @@ route6="$dir/.firewall6"
 [[ "${VPN:-""}" ]] && eval vpn $(sed 's/^/"/; s/$/"/; s/;/" "/g' <<< $VPN)
 [[ "${VPNPORT:-""}" ]] && eval vpnportforward $(sed 's/^/"/; s/$/"/; s/;/" "/g'\
             <<< $VPNPORT)
+[[ "${EXTRACOMMANDS:-""}" ]] && eval "$EXTRACOMMANDS"
 
 while getopts ":hc:df:m:p:R:r:v:" opt; do
     case "$opt" in
